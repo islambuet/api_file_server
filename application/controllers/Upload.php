@@ -25,7 +25,7 @@ class Upload extends Api_controller
         $dir=str_replace($this->config->item('system_site_root_folder'),$upload_site_root_dir,FCPATH).$save_dir;
         if(!is_dir($dir))
         {
-            $status_created=mkdir($dir, 0777);
+            $status_created=mkdir($dir, 0777,true);
             if(!$status_created)
             {
                 $response['status']=false;
