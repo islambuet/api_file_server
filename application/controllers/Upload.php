@@ -25,7 +25,13 @@ class Upload extends Api_controller
         $dir=str_replace($this->config->item('system_site_root_folder'),$upload_site_root_dir,FCPATH).$save_dir;
         if(!is_dir($dir))
         {
-            mkdir($dir, 0777);
+            $status_created=mkdir($dir, 0777);
+            if(!$status_created)
+            {
+                $response['status']=false;
+                $response['response_message']='Unable to Create Directory';
+                $this->json_return($response);
+            }
         }
         $response['uploaded_files']= System_helper::upload_file($dir,$allowed_types,$max_size);
         $response['status']=true;
