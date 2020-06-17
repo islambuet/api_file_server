@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class System_helper
 {
-    public static function upload_file($save_dir,$allowed_types='gif|jpg|png',$max_size=10240)
+    public static function upload_file($save_dir,$allowed_types='gif|jpg|png|jpeg',$max_size=10240)
     {
         $CI= & get_instance();
         $CI->load->library('upload');
